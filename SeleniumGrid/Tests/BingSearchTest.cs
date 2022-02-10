@@ -14,22 +14,18 @@ using System.Threading;
 
 namespace SeleniumGrid
 {
+    [TestFixture(BrowserType.Edge)]
+    [TestFixture(BrowserType.Chrome)]
+    [TestFixture(BrowserType.Firefox)]
     public class Tests
     {
         private IWebDriver driver;
         string hubUrl;
 
-        [SetUp]
-        public void Setup()
+        public Tests(BrowserType browser)
         {
             hubUrl = "http://localhost:4444/wd/hub";
-            driver = LocalDriverFactory.CreateInstance(BrowserType.Chrome, hubUrl);
-        }
-
-        [TearDown]
-        protected void TearDown()
-        {
-            driver.Quit();
+            driver = LocalDriverFactory.CreateInstance(browser, hubUrl);
         }
 
         [Test]
@@ -39,6 +35,8 @@ namespace SeleniumGrid
             driver.Navigate().GoToUrl("https://www.bing.com");
             driver.Manage().Window.Maximize();
             driver.FindElement(By.Name("q")).SendKeys("Selenium Grid");
+
+            driver.Quit();
         }
     }
 }

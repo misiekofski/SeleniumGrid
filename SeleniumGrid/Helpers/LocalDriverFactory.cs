@@ -40,11 +40,13 @@ namespace SeleniumGrid.Helpers
             {
                 case BrowserType.Chrome:
                     ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.AddArgument("--no-sandbox");
                     driver = GetWebDriver(hubUrl, chromeOptions.ToCapabilities());
                     break;
                 case BrowserType.Edge:
-                    EdgeOptions options = new EdgeOptions();
-                    driver = GetWebDriver(hubUrl, options.ToCapabilities());
+                    EdgeOptions edgeOptions = new EdgeOptions();
+                    edgeOptions.AddArgument("--no-sandbox");
+                    driver = GetWebDriver(hubUrl, edgeOptions.ToCapabilities());
                     break;
                 case BrowserType.Firefox:
                     FirefoxOptions firefoxOptions = new FirefoxOptions();

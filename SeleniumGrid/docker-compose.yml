@@ -1,7 +1,7 @@
 ﻿version: "3"
 services:
   chrome:
-    image: selenium/standalone-chrome:4.1.2-20220208
+    image: selenium/node-chrome:4.1.2-20220208
     volumes:
       - /dev/shm:/dev/shm
     depends_on:
@@ -15,7 +15,7 @@ services:
       - "6900:5900"
  
   edge:
-    image: selenium/standalone-edge:4.1.2-20220208
+    image: selenium/node-edge:4.1.2-20220208
     volumes:
       - /dev/shm:/dev/shm
     depends_on:

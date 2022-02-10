@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace NUnitTestProject1
+namespace SeleniumGrid
 {
     public class Tests
     {
@@ -23,7 +23,7 @@ namespace NUnitTestProject1
         public void Setup()
         {
             hubUrl = "http://localhost:4444/wd/hub";
-            driver = LocalDriverFactory.CreateInstance(BrowserType.Edge, hubUrl);
+            driver = LocalDriverFactory.CreateInstance(BrowserType.Chrome, hubUrl);
         }
 
         [TearDown]
